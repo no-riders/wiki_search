@@ -205,6 +205,9 @@ footer {
 		width: 170px;
 		height: 20px;
 	}
+	header {
+		top: 0;
+	}
 	header span {
 		margin-bottom: 50px;
 	}
