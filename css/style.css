@@ -59,9 +59,6 @@ input {
 	font-size: 22px;
 	-webkit-transition: all 0.5s cubic-bezier(.25,.1,.25,1);
 }
-form {
-	cursor: pointer;
-}
 
 input:focus {
 	  box-shadow: 0px 0px 15px 0px antiquewhite;
@@ -93,9 +90,9 @@ button.clear {
     transition: all 0.5s cubic-bezier(.25,.1,.25,1);
 }
 
-/*button:hover {
+button:hover {
 	box-shadow: 0px 0px 15px 0px antiquewhite;
-}*/
+}
 
 button.clear:after {
 	content: 'X';

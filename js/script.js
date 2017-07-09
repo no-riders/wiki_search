@@ -4,7 +4,13 @@ var header = document.getElementsByTagName('HEADER')[0];
 var main = document.getElementsByTagName('MAIN')[0];
 
 
-function search() {
+
+
+query.addEventListener('keydown', function() {
+    btn.style.display = "inline-block";
+})
+
+btn.addEventListener('click', function() {
     var request = new XMLHttpRequest();
     var findWiki = query.value;
     request.open('GET', 'https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + findWiki + '');
@@ -29,14 +35,6 @@ function search() {
         }
     }
     request.send()
-}
-
-query.addEventListener('keydown', function() {
-    btn.style.display = "inline-block";
-})
-
-btn.addEventListener('click', function() {
-    search();
 });
 
 query.addEventListener('keypress', function(event) {
