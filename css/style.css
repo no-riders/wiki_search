@@ -103,7 +103,7 @@ button.clear:after {
 	font-size: larger;
 }
 
-button.search_btn {
+button#btn {
 	display: none;
 	position: relative;
 	left: 0;
