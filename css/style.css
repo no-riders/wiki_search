@@ -45,7 +45,7 @@ input {
 	height: 45px;
 	width: 280px;
 	position: relative;
-  	/*-webkit-appearance: none;*/
+  	-webkit-appearance: none;
   	outline: none;
   	background: transparent;
   	border: .5px solid antiquewhite;
