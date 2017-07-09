@@ -2,7 +2,7 @@ var query = document.getElementById('search_field');
 var btn = document.getElementById('btn');
 var header = document.getElementsByTagName('HEADER')[0];
 var main = document.getElementsByTagName('MAIN')[0];
-
+var footer = document.getElementsByTagName('FOOTER')[0];
 
 query.addEventListener('keydown', function() {
     btn.style.display = "inline-block";
@@ -20,6 +20,7 @@ btn.addEventListener('click', function() {
     var findWiki = query.value;
     request.open('GET', 'https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + findWiki + '');
     request.onload = function() {
+      footer.style.display = 'block';
         var title = [];
         var content = [];
         var wikiUrl = [];
@@ -46,7 +47,8 @@ btn.addEventListener('click', function() {
 });
 
 document.getElementsByClassName('clear')[0].addEventListener('click', function() {
-    btn.style.display = "none";
+  footer.style.display = 'none';
+    btn.style.display = 'none';
     header.classList.remove('after_search');
     main.style.display = 'none';
 })
