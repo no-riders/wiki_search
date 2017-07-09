@@ -4,10 +4,15 @@ var header = document.getElementsByTagName('HEADER')[0];
 var main = document.getElementsByTagName('MAIN')[0];
 
 
-
-
 query.addEventListener('keydown', function() {
     btn.style.display = "inline-block";
+})
+
+query.addEventListener('keypress', function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+        btn.click();
+    }
 })
 
 btn.addEventListener('click', function() {
@@ -22,13 +27,16 @@ btn.addEventListener('click', function() {
         var listContent = document.getElementById('list').getElementsByTagName('p');
         var url = document.getElementById('list').getElementsByTagName('a');
         var data = JSON.parse(request.responseText);
-        var arr = Object.values(data.query.pages) //object values to arr
+        var arr = Object.keys(data.query.pages).map(function(e) { //obj to arr
+           return [Number(e), data.query.pages[e]];
+        })
+
         header.className = 'after_search';
         main.style.display = 'block';
         for (var i = 0; i < arr.length; i++) {
-            title.push(arr[i].title);
-            content.push(arr[i].extract);
-            wikiUrl.push(arr[i].pageid);
+            title.push(arr[i][1].title);
+            content.push(arr[i][1].extract);
+            wikiUrl.push(arr[i][1].pageid);
             listTitles[i].innerHTML = title[i];
             listContent[i].innerHTML = content[i];
             url[i].href = 'https://en.wikipedia.org/?curid=' + wikiUrl[i];
@@ -36,13 +44,6 @@ btn.addEventListener('click', function() {
     }
     request.send()
 });
-
-query.addEventListener('keypress', function(event) {
-    if (event.keyCode == 13) {
-        event.preventDefault();
-        btn.click();
-    }
-})
 
 document.getElementsByClassName('clear')[0].addEventListener('click', function() {
     btn.style.display = "none";
