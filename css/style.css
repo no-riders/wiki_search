@@ -85,6 +85,7 @@ button.clear {
     border: 1px solid antiquewhite;
     display: inline-block;
     outline: none;
+    cursor: pointer;
     background: transparent;
     transition: all 0.5s cubic-bezier(.25,.1,.25,1);
 }
@@ -111,6 +112,7 @@ button.search_btn {
     border-radius: 5px;
     padding: 8px;
     margin-left: 3px;
+    cursor: pointer;
     transition: all 0.5s cubic-bezier(.25,.1,.25,1);
 }
 
@@ -194,4 +196,26 @@ footer {
 	letter-spacing: 1px;
 	cursor: arrow;
 	transition: all 0.2s cubic-bezier(.25,.1,.25,1);
+}
+
+
+/*media*/
+@media (max-width: 768px){
+	input {
+		width: 170px;
+		height: 20px;
+	}
+	header span {
+		margin-bottom: 50px;
+	}
+	footer {
+		margin-top: 219px;
+	}
+	header.after_search {
+		margin-bottom: 50px;
+	}
+	main ul li {
+		height: 235px;
+	}
+
 }
